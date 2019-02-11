@@ -56,22 +56,20 @@ public class LoopFun
       public String encrypt(String word) {
           String abc = "abcdefghijklmnopqrstuvwxyz";
           String encrypt = "defghijklmnopqrstuvwxyzabc";
-          int x = 0;
+          char[] okay = encrypt.toCharArray();
+          int counter = 0;
           String secret = "";
-          for(int t = 0; t <= abc.length()-1; t++){
-             
-              word.replace(word.charAt(t),encrypt.charAt(t));
-            }
-          
-          
-          /**while(x <= word.length()){
-            for(int j = 0; j <= word.length(); j++){
-                for(int i = 0; i <= word.length(); i++){
-                    if(word.charAt(j) == abc.charAt(i)){
-                        word += word.replace(word.charAt(j),abc.charAt(i));
+          while(counter <= word.length()-1){
+           for(int x = 0; x <= word.length()-1; x++){
+             for(int y = 0; y <= abc.length()-1; y++){
+                 if(word.charAt(x) == abc.charAt(y)){
+                    secret += String.valueOf(okay[y]);
                     }
-                    x++;
-                } */
+                    
+                }
+                counter++;
+            }
+        }
           return secret;
       }
 }
